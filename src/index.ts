@@ -3,12 +3,14 @@ import express, { type Request, type Response } from "express";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.route";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 const PORT = process.env.PORT;
 
 const app = express();
 app.use(cors());
+app.use(cookieParser());
 app.use(express.json());
 
 app.get("/api", (req: Request, res: Response) => {
